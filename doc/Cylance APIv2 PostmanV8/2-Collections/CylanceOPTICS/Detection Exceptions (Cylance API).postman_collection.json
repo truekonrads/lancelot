@@ -1,0 +1,263 @@
+{
+	"info": {
+		"_postman_id": "c9d8891d-6d28-4776-9cc9-a7c76b71d5ea",
+		"name": "Detection Exceptions (Cylance API)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Detection Exceptions List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/exceptions/v2",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"exceptions",
+						"v2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Detection Exceptions CSV List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/exceptions/v2/csv",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"exceptions",
+						"v2",
+						"csv"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Detection Exception",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/exceptions/v2/{{exception_id}}",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"exceptions",
+						"v2",
+						"{{exception_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Detection Exception",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"detection_exception_json_structure\": \"goes_in_body\"\n}"
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/exceptions/v2",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"exceptions",
+						"v2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Detection Exception",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"detection_exception_json_structure\": \"goes_in_body\"\n}"
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/exceptions/v2/{{exception_id}}",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"exceptions",
+						"v2",
+						"{{exception_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deactivate / Delete Detection Exception",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"detection_exception_json_structure\": \"goes_in_body\"\n}"
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/exceptions/v2/{{exception_id}}/deactivate",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"exceptions",
+						"v2",
+						"{{exception_id}}",
+						"deactivate"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

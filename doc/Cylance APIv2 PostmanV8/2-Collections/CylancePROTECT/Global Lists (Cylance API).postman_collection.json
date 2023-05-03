@@ -1,0 +1,137 @@
+{
+	"info": {
+		"name": "Global Lists (Cylance API)",
+		"_postman_id": "ea26232f-17f2-4323-a3f5-a24f3239eefb",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Global List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/globallists/v2?listTypeId={{list_type_id}}&page={{page_number}}&page_size={{page_size}}",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"globallists",
+						"v2"
+					],
+					"query": [
+						{
+							"key": "listTypeId",
+							"value": "{{list_type_id}}",
+							"equals": true
+						},
+						{
+							"key": "page",
+							"value": "{{page_number}}",
+							"equals": true
+						},
+						{
+							"key": "page_size",
+							"value": "{{page_size}}",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Add To Global List",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"sha256\": \"sha256\",\r\n  \"list_type\": \"list_type\",\r\n  \"category\": \"category\",\r\n  \"reason\": \"reason\"\r\n}"
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/globallists/v2",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"globallists",
+						"v2"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete From Global List",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"sha256\": \"sha256\",\r\n  \"list_type\": \"list_type\"\r\n}"
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/globallists/v2",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"globallists",
+						"v2"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

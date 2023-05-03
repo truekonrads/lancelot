@@ -1,0 +1,297 @@
+{
+	"info": {
+		"name": "Users (Cylance API)",
+		"_postman_id": "704eac6c-b7db-427a-8237-dc919eb4add6",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"email\",\r\n  \"user_role\": \"user_role\",\r\n  \"first_name\": \"first_name\",\r\n  \"last_name\": \"last_name\",\r\n  \"zones\": [\r\n    {\r\n      \"id\": \"id\",\r\n      \"role_type\": \"role_type\"\r\n    }\r\n  ]\r\n}"
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/users/v2",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"users",
+						"v2"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/users/v2?page={{page_number}}&page_size={{page_size}}",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"users",
+						"v2"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "{{page_number}}",
+							"equals": true
+						},
+						{
+							"key": "page_size",
+							"value": "{{page_size}}",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get User - User ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/users/v2/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"users",
+						"v2",
+						"{{user_id}}"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get User - Email",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/users/v2/{{user_email_address}}",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"users",
+						"v2",
+						"{{user_email_address}}"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update User",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"email\",\r\n  \"user_role\": \"user_role\",\r\n  \"first_name\": \"first_name\",\r\n  \"last_name\": \"last_name\",\r\n  \"zones\": [\r\n    {\r\n      \"id\": \"id\",\r\n      \"role_type\": \"role_type\"\r\n    }\r\n  ]\r\n}\r\n"
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/users/v2/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"users",
+						"v2",
+						"{{user_id}}"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/users/v2/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"users",
+						"v2",
+						"{{user_id}}"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Send Invite Email",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/users/v2/{{user_email_address}}/invite",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"users",
+						"v2",
+						"{{user_email_address}}",
+						"invite"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Send Reset Password Email",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/users/v2/{{user_email_address}}/resetpassword",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"users",
+						"v2",
+						"{{user_email_address}}",
+						"resetpassword"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

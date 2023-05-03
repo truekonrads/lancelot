@@ -1,0 +1,244 @@
+{
+	"info": {
+		"_postman_id": "c89004f0-fc02-4fd9-b480-579e2dd99913",
+		"name": "Device Commands (Cylance API)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Lockdown Device",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/devicecommands/v2/{{device_id}}/lockdown?value=true&expires={{lockdown_expiration}}",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"devicecommands",
+						"v2",
+						"{{device_id}}",
+						"lockdown"
+					],
+					"query": [
+						{
+							"key": "value",
+							"value": "true"
+						},
+						{
+							"key": "expires",
+							"value": "{{lockdown_expiration}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Device Lockdown History",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/devicecommands/v2/{{device_id}}}}/lockdown",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"devicecommands",
+						"v2",
+						"{{device_id}}}}",
+						"lockdown"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Retrieved File Results",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/devicecommands/v2/retrieved_files?page={{page_number}}&page_size={{page_size}}",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"devicecommands",
+						"v2",
+						"retrieved_files"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "{{page_number}}"
+						},
+						{
+							"key": "page_size",
+							"value": "{{page_size}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Request File Retrieval from Device",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"file_path\": \"C:\\\\path\\\\to\\\\file.txt\"\n}"
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/devicecommands/v2/{{device_id}}/getfile",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"devicecommands",
+						"v2",
+						"{{device_id}}",
+						"getfile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check File Retrieval Status from Device",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"file_path\": \"C:\\\\path\\\\to\\\\file.txt\"\n}"
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/devicecommands/v2/{{device_id}}/getfile:get",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"devicecommands",
+						"v2",
+						"{{device_id}}",
+						"getfile:get"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

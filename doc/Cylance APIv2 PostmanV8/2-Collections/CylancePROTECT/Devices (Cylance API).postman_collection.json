@@ -1,0 +1,391 @@
+{
+	"info": {
+		"_postman_id": "8492ae7c-86de-4b90-b64b-fdac7933a744",
+		"name": "Devices (Cylance API)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Devices",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/devices/v2?page={{page_number}}&page_size={{page_size}}",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"devices",
+						"v2"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "{{page_number}}"
+						},
+						{
+							"key": "page_size",
+							"value": "{{page_size}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Device",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/devices/v2/{{device_id}}",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"devices",
+						"v2",
+						"{{device_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Device",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"name\",\r\n    \"policy_id\": \"policy_id\",\r\n    \"add_zone_ids\": [\r\n        \"add_zone_ids\"\r\n    ],\r\n    \"remove_zone_ids\": [\r\n         \"remove_zone_ids\"\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/devices/v2/{{device_id}}",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"devices",
+						"v2",
+						"{{device_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Device Threats",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer: {{jwt-token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/devices/v2/{{device_id}}/threats?page={{page_number}}&page_size={{page_size}}",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"devices",
+						"v2",
+						"{{device_id}}",
+						"threats"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "{{page_number}}"
+						},
+						{
+							"key": "page_size",
+							"value": "{{page_size}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Device Threat",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"threat_id\": \"threat_id\",\n\t\"event\": \"event\"\n}"
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/devices/v2/{{device_id}}/threats",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"devices",
+						"v2",
+						"{{device_id}}",
+						"threats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Zone Devices",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/devices/v2/{{zone_id}}/devices?page={{page_number}}&page_size={{page_size}}",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"devices",
+						"v2",
+						"{{zone_id}}",
+						"devices"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "{{page_number}}"
+						},
+						{
+							"key": "page_size",
+							"value": "{{page_size}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Agent Installer Link",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/devices/v2/installer?product={{product}}&os={{os}}&package={{package}}&architecture={{architecture}}&build={{build}}",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"devices",
+						"v2",
+						"installer"
+					],
+					"query": [
+						{
+							"key": "product",
+							"value": "{{product}}"
+						},
+						{
+							"key": "os",
+							"value": "{{os}}"
+						},
+						{
+							"key": "package",
+							"value": "{{package}}"
+						},
+						{
+							"key": "architecture",
+							"value": "{{architecture}}"
+						},
+						{
+							"key": "build",
+							"value": "{{build}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Devices",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"device_ids\": [\r\n\t\t\"device_id1\",\r\n\t\t\"device_id2\",\r\n\t\t\"device_id3\"\r\n\t],\r\n\t\"callback_url\": \"callback_url (optional)\"\r\n}"
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/devices/v2/",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"devices",
+						"v2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Device By MAC Address",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/devices/v2/macaddress/{{mac_address}}",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"devices",
+						"v2",
+						"macaddress",
+						"{{mac_address}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

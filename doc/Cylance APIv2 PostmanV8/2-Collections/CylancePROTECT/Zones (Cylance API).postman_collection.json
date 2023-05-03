@@ -1,0 +1,241 @@
+{
+	"info": {
+		"name": "Zones (Cylance API)",
+		"_postman_id": "7e5e3010-3813-4672-9def-ca340d94ac63",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Zone",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"name\",\r\n    \"policy_id\": \"policy_id\",\r\n    \"criticality\": \"criticality\"\r\n}"
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/zones/v2",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"zones",
+						"v2"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Zones",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/zones/v2?page={{page_number}}&page_size={{page_size}}",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"zones",
+						"v2"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "{{page_number}}",
+							"equals": true
+						},
+						{
+							"key": "page_size",
+							"value": "{{page_size}}",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Device Zones",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/zones/v2/{{device_id}}/zones?page={{page_number}}&page_size={{page_size}}",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"zones",
+						"v2",
+						"{{device_id}}",
+						"zones"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "{{page_number}}",
+							"equals": true
+						},
+						{
+							"key": "page_size",
+							"value": "{{page_size}}",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Zone",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/zones/v2/{{zone_id}}",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"zones",
+						"v2",
+						"{{zone_id}}"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update Zone",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"name\",\r\n    \"policy_id\": \"policy_id\",\r\n    \"criticality\": \"criticality\"\r\n}"
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/zones/v2/{{zone_id}}",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"zones",
+						"v2",
+						"{{zone_id}}"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Zone",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/zones/v2/{{zone_id}}",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"zones",
+						"v2",
+						"{{zone_id}}"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

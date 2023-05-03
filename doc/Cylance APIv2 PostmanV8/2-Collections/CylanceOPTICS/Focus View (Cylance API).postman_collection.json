@@ -1,0 +1,232 @@
+{
+	"info": {
+		"_postman_id": "f46e79cb-eba8-4b93-b704-6afe79ef4f6c",
+		"name": "Focus View (Cylance API)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Search Focus View Results",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n\t{\n\t\t\"uid\": \"artifact_uid_string\",\n\t\t\"device_id\": \"device_id_string\"\n\t\n\t}\n]"
+				},
+				"url": {
+					"raw": "https://r02-protectapi{{region-code}}.cylance.com/foci/v2/search",
+					"protocol": "https",
+					"host": [
+						"r02-protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"foci",
+						"v2",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Request Focus View",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"device_id\": \"device_id_string\",\n\t\"artifact_type\": \"artifact_type_string\",\n\t\"artifact_subtype\": \"Uid\",\n\t\"value\": \"uid_string\",\n\t\"threat_type\": \"\",\n\t\"description\": \"Example Focus View\"\n}"
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/foci/v2",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"foci",
+						"v2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Focus View List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/foci/v2?page={{page_number}}&page_size={{page_size}}",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"foci",
+						"v2"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "{{page_number}}"
+						},
+						{
+							"key": "page_size",
+							"value": "{{page_size}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Focus View Summary",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/foci/v2/{{focus_id}}",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"foci",
+						"v2",
+						"{{focus_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Focus View Results",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/foci/v2/{{focus_id}}/results",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"foci",
+						"v2",
+						"{{focus_id}}",
+						"results"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

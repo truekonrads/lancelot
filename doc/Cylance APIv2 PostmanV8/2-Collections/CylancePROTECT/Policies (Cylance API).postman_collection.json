@@ -1,0 +1,229 @@
+{
+	"info": {
+		"_postman_id": "18fef461-afb0-4c23-84c2-4b26bcb88bec",
+		"name": "Policies (Cylance API)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Policies",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/policies/v2?page={{page_number}}&page_size={{page_size}}",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"policies",
+						"v2"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "{{page_number}}"
+						},
+						{
+							"key": "page_size",
+							"value": "{{page_size}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Policy",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/policies/v2/{{policy_id}}",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"policies",
+						"v2",
+						"{{policy_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Policy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\" : \"{{user_id}}\",\r\n    \"policy\" : {\r\n    \"device_control\": {\r\n        \"configurations\": [\r\n            {\r\n                \"control_mode\": \"control_mode\",\r\n                \"device_class\": \"device_class\"\r\n            }\r\n        ],\r\n        \"exclusion_list\": [\r\n            {\r\n                \"control_mode\": \"control_mode\",\r\n                \"product_id\": \"product_id\",\r\n                \"serial_number\": \"serial_number\",\r\n                \"vendor_id\": \"vendor_id\"\r\n            }\r\n        ]\r\n    },\r\n    \"file_exclusions\": [\r\n        {\r\n            \"file_hash\": \"file_hash\",\r\n            \"md5\": \"md5\",\r\n            \"file_name\": \"file_name\",\r\n            \"category_id\": \"category_id\",\r\n            \"reason\": \"reason\"\r\n        }\r\n    ],\r\n    \"memoryviolation_actions\": {\r\n        \"memory_violations\": [\r\n            {\r\n                \"action\": \"action\",\r\n                \"violation_type\": \"violation_type\"\r\n            }\r\n        ],\r\n        \"memory_violations_ext\": [\r\n            {\r\n                \"action\": \"action\",\r\n                \"violation_type\": \"violation_type\"\r\n            }\r\n        ],\r\n        \"memory_exclusion_list\": \"[]\"\r\n    },\r\n    \"policy\": [\r\n        {\r\n            \"name\": \"name\",\r\n            \"value\": \"value\"\r\n        }\r\n    ],\r\n    \"policy_name\": \"policy_name\",\r\n    \"script_control\": {\r\n        \"activescript_settings\": {\r\n            \"control_mode\": \"control_mode\"\r\n        },\r\n        \"global_settings\": {\r\n            \"allowed_folders\": \"\",\r\n            \"control_mode\": \"control_mode\"\r\n        },\r\n        \"macro_settings\": {\r\n            \"control_mode\": \"control_mode\"\r\n        },\r\n        \"powershell_settings\": {\r\n            \"console_mode\": \"control_mode\",\r\n            \"control_mode\": \"control_mode\"\r\n        }\r\n    },\r\n    \"filetype_actions\": {\r\n        \"suspicious_files\": [\r\n            {\r\n                \"actions\": \"actions\",\r\n                \"file_type\": \"file_type\"\r\n            }\r\n        ],\r\n        \"threat_files\": [\r\n            {\r\n                \"actions\": \"actions\",\r\n                \"file_type\": \"file_type\"\r\n            }\r\n        ]\r\n    },\r\n    \"logpolicy\": {\r\n        \"log_upload\": \"log_upload\",\r\n        \"maxlogsize\": \"maxlogsize\",\r\n        \"retentiondays\": \"retentiondays\"\r\n    }\r\n  }\r\n}"
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/policies/v2",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"policies",
+						"v2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Policy",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"device_control\": {\r\n        \"configurations\": [\r\n            {\r\n                \"control_mode\": \"control_mode\",\r\n                \"device_class\": \"device_class\"\r\n            }\r\n        ],\r\n        \"exclusion_list\": [\r\n            {\r\n                \"control_mode\": \"control_mode\",\r\n                \"product_id\": \"product_id\",\r\n                \"serial_number\": \"serial_number\",\r\n                \"vendor_id\": \"vendor_id\"\r\n            }\r\n        ]\r\n    },\r\n    \"file_exclusions\": [\r\n        {\r\n            \"file_hash\": \"file_hash\",\r\n            \"md5\": \"md5\",\r\n            \"file_name\": \"file_name\",\r\n            \"category_id\":\"category_id\",\r\n            \"reason\": \"reason\"\r\n        }\r\n    ],\r\n    \"memoryviolation_actions\": {\r\n        \"memory_violations\": [\r\n            {\r\n                \"action\": \"action\",\r\n                \"violation_type\": \"violation_type\"\r\n            }\r\n        ],\r\n        \"memory_violations_ext\": [\r\n            {\r\n                \"action\": \"action\",\r\n                \"violation_type\": \"violation_type\"\r\n            }\r\n        ],\r\n        \"memory_exclusion_list\": \"[]\"\r\n    },\r\n    \"policy\": [\r\n        {\r\n            \"name\": \"name\",\r\n            \"value\": \"value\"\r\n        }\r\n    ],\r\n    \"policy_id\": \"policy_id\",\r\n    \"policy_name\": \"policy_name\",\r\n    \"policy_utctimestamp\": \"policy_utctimestamp\",\r\n    \"script_control\": {\r\n        \"activescript_settings\": {\r\n            \"control_mode\": \"control_mode\"\r\n        },\r\n        \"global_settings\": {\r\n            \"allowed_folders\": \"allowed_folders\",\r\n            \"control_mode\": \"control_mode\"\r\n        },\r\n        \"macro_settings\": {\r\n            \"control_mode\": \"control_mode\"\r\n        },\r\n        \"powershell_settings\": {\r\n            \"console_mode\": \"console_mode\",\r\n            \"control_mode\": \"control_mode\"\r\n        }\r\n    },\r\n    \"filetype_actions\": {\r\n        \"suspicious_files\": [\r\n            {\r\n                \"actions\": \"actions\",\r\n                \"file_type\": \"file_type\"\r\n            }\r\n        ],\r\n        \"threat_files\": [\r\n            {\r\n                \"actions\": \"actions\",\r\n                \"file_type\": \"file_type\"\r\n            }\r\n        ]\r\n    },\r\n    \"logpolicy\": {\r\n        \"log_upload\": \"log_upload\",\r\n        \"maxlogsize\": \"maxlogsize\",\r\n        \"retentiondays\": \"retentiondays\"\r\n  }\r\n}"
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/policies/v2",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"policies",
+						"v2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Policy",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/policies/v2/{{policy_id}}",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"policies",
+						"v2",
+						"{{policy_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Policies",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt-token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tenant_policy_ids\": [\r\n        \"tenant_policy_id\",\r\n        \"tenant_policy_id\",\r\n        \"tenant_policy_id\",\r\n        \"tenant_policy_id\",\r\n        \"tenant_policy_id\"\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "https://protectapi{{region-code}}.cylance.com/policies/v2",
+					"protocol": "https",
+					"host": [
+						"protectapi{{region-code}}",
+						"cylance",
+						"com"
+					],
+					"path": [
+						"policies",
+						"v2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
