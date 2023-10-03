@@ -59,7 +59,8 @@ class Lancelot(object):
                  datadir: str = None,
                  mongodburi: str = None,
                  profile: str = 'lancelot',
-                 debug: bool = False):
+                 debug: bool = False,
+                 ssl_verify: bool = True):
         if debug:
             LOGGER.setLevel(logging.DEBUG)
 
@@ -69,7 +70,7 @@ class Lancelot(object):
             self.datadir = os.path.join(Path.home(), ".lancelot")
             if not os.path.exists(self.datadir):
                 os.makedirs(self.datadir)
-
+        self.ssl_verify=ssl_verify
         self.profile = profile
         self.mongodburi = mongodburi
         self.tenant_uri = tenant_uri
@@ -138,12 +139,12 @@ class Lancelot(object):
         # from IPython import embed
         # embed()
         encoded = jwt.encode(claims, self.app_secret,
-                             algorithm='HS256').decode('utf8')
+                             algorithm='HS256')#.decode('utf8')
         LOGGER.debug("auth_token:" + encoded)
         payload = {"auth_token": encoded}
         headers = {"Content-Type": "application/json; charset=utf-8"}
         resp = requests.post(AUTH_URL, headers=headers,
-                             data=json.dumps(payload))
+                             data=json.dumps(payload),verify=self.ssl_verify)
         LOGGER.debug("http_status_code: " + str(resp.status_code))
         j = resp.json()
         LOGGER.debug("access_token:" + j['access_token'])
@@ -154,6 +155,7 @@ class Lancelot(object):
         url = args[0]
         LOGGER.debug(f"{method} {url}")
         kwargs['allow_redirects'] = False
+        kwargs['verify']=self.ssl_verify
         response = m(*args, **kwargs)
         if response.status_code not in (200, 202):
             e = LancelotException("Error while performing request {}".format(
