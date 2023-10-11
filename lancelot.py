@@ -404,13 +404,7 @@ class Lancelot(object):
                 },
                 'destination': destination,
                 # 'packageExecutions': [],
-                'packageExecutions': [
-                    # {
-                    #     "arguments": [],
-
-                    #     "package":"129469df-9bb6-4908-b0c0-1518655a0a17"#https://content-apse2.cylance.com/B60A68E0421645FFB93E9B75A8484568"
-                    # }
-                ],
+                'packageExecutions': [],
                 'keepResultsLocally': keepResultsLocally
 
             }
@@ -481,13 +475,7 @@ class Lancelot(object):
                 },
                 'destination': destination,
                 # 'packageExecutions': [],
-                'packageExecutions': [
-                    # {
-                    #     "arguments": [],
-
-                    #     "package":"129469df-9bb6-4908-b0c0-1518655a0a17"#https://content-apse2.cylance.com/B60A68E0421645FFB93E9B75A8484568"
-                    # }
-                ],
+                'packageExecutions': [],
                 'keepResultsLocally': keepResultsLocally
 
             }
